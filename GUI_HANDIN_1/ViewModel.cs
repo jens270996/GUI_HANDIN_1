@@ -14,6 +14,12 @@ namespace GUI_HANDIN_1
     {
         private ObservableCollection<Debtor> debtors;
 
+        public ViewModel()
+        {
+            debtors=new ObservableCollection<Debtor>();
+            debtors.Add(new Debtor("Jens",27.9));
+            debtors.Add(new Debtor("Joachim",27000.0));
+        }
 
 
         //Properties
@@ -32,7 +38,9 @@ namespace GUI_HANDIN_1
 
         private int currentIndex = -1;
 
-        public int CurrentIndex { get {return currentIndex}
+        public int CurrentIndex
+        {
+            get { return currentIndex;}
             set { SetProperty(ref currentIndex, value); }
         }   
         
@@ -48,7 +56,9 @@ namespace GUI_HANDIN_1
 
         private void AddDebtor(Debtor obj)
         {
-            Debtors.Add(obj);
+            AddDebtorWin win = new AddDebtorWin();
+            
+            win.Show();
         }
     }
 
