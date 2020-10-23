@@ -11,11 +11,14 @@
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1"/>
-            <RowDefinition Height="1"/>
-            <RowDefinition Height="1"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <TextBox Name="NameTextBox" Text="{Binding }"></TextBox>
+        <TextBox Name="NameTextBox" Text="{Binding Debtor.Name }"></TextBox>
+        <TextBox Grid.Row="1" Name="DebtTextBox" Text="{Binding InitialDebt }"></TextBox>
+        <Button Grid.Row="2" x:Name="AddDebtorButton" Content="Add Debtor" Command="{Binding AddDebtorAndCloseCommand}"/>
+
     </Grid>
 </Window>

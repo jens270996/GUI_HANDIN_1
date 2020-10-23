@@ -19,6 +19,8 @@ namespace GUI_HANDIN_1
             debtors=new ObservableCollection<Debtor>();
             debtors.Add(new Debtor("Jens",27.9));
             debtors.Add(new Debtor("Joachim",27000.0));
+            //skriv op til event
+            
         }
 
 
@@ -59,6 +61,13 @@ namespace GUI_HANDIN_1
             AddDebtorWin win = new AddDebtorWin();
             
             win.Show();
+            win.ViewModel.DebtorAddedEvent += HandleDebtorAddedEvent;
+        }
+
+        private void HandleDebtorAddedEvent(object sender, DebtorEventArgs e)
+        {
+            Debtors.Add(e.Debtor);
+            
         }
     }
 

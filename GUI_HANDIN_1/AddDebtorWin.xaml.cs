@@ -17,14 +17,17 @@ namespace GUI_HANDIN_1
     /// <summary>
     /// Interaction logic for Window2.xaml
     /// </summary>
-    public partial class Window2 : Window
+    public partial class AddDebtorWin : Window
     {
         
-        public Window2()
+        public AddDebtorWin()
         {
             InitializeComponent();
+            ViewModel=DataContext as ViewModel2;
+            if (ViewModel.CloseAction == null)
+                ViewModel.CloseAction = new Action(this.Close);
         }
-        public event EventHandler<DebtorEventArgs> DebtorAddedEvent;
+        public ViewModel2 ViewModel { get; private set; }
 
     }
 
