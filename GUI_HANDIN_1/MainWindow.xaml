@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_HANDIN_1"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+        
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
@@ -27,13 +29,13 @@
             <TextBlock Text="Name of debtor:" Margin="5,10,5,5" FontWeight="Bold" MinWidth="200"></TextBlock>
             <TextBlock Text="Total debt:" Margin="5,10,5,5" FontWeight="Bold" MinWidth="100"></TextBlock>
         </WrapPanel>
-    <ListView Grid.Row="1" Margin="10" Name="DebtorListView" ItemsSource="{Binding Debtors}" >
-            <ListView.Triggers>
-                <EventTrigger>
-                    
-                </EventTrigger>
+    <ListView Grid.Row="1" Margin="10" Name="DebtorListView" ItemsSource="{Binding Debtors}"  IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding CurrentDebtor}">
+            <b:Interaction.Triggers>
+                <b:EventTrigger EventName="SelectionChanged">
+                    <b:InvokeCommandAction Command="{Binding DebtorSelectedCommand }"></b:InvokeCommandAction>
+                </b:EventTrigger>
 
-            </ListView.Triggers>
+            </b:Interaction.Triggers>
         <ListView.ItemTemplate>
             
             <DataTemplate>

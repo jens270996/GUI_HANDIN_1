@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -20,6 +22,7 @@ namespace GUI_HANDIN_1
             debtors.Add(new Debtor("Jens",27.9));
             debtors.Add(new Debtor("Joachim",27000.0));
             //skriv op til event
+            
             
         }
 
@@ -63,16 +66,28 @@ namespace GUI_HANDIN_1
             win.Show();
             win.ViewModel.DebtorAddedEvent += HandleDebtorAddedEvent;
         }
+        private ICommand _DebtorSelectedCommand;
+
+        public ICommand DebtorSelectedCommand
+        {
+            get { return _DebtorSelectedCommand ?? (_DebtorSelectedCommand= new DelegateCommand(DebtorSelected)); }
+        }
+
+        private void DebtorSelected()
+        {
+            var win=new DebitsWindow();
+            win.ViewModel.Debtor = CurrentDebtor;
+            win.Show();
+        }
+
+       
 
         private void HandleDebtorAddedEvent(object sender, DebtorEventArgs e)
         {
             Debtors.Add(e.Debtor);
             
         }
-        private void DebtorListView_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            
-        }
+       
     }
 
 
