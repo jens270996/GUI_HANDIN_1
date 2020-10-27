@@ -69,6 +69,10 @@ namespace GUI_HANDIN_1
             Debtors.Add(e.Debtor);
             
         }
+        private void DebtorListView_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
     }
 
 

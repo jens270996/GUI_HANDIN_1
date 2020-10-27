@@ -24,5 +24,7 @@ namespace GUI_HANDIN_1
         {
             InitializeComponent();
         }
+
+        
     }
 }
