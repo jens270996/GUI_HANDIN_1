@@ -23,8 +23,11 @@ namespace GUI_HANDIN_1
         public AddDebtorWin()
         {
             InitializeComponent();
+            ViewModel=DataContext as ViewModel2;
+            if (ViewModel.CloseAction == null)
+                ViewModel.CloseAction = new Action(this.Close);
         }
-        public event EventHandler<DebtorEventArgs> DebtorAddedEvent;
+        public ViewModel2 ViewModel { get; private set; }
 
     }
 
