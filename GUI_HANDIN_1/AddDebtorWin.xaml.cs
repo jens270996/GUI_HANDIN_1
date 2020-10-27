@@ -17,10 +17,10 @@ namespace GUI_HANDIN_1
     /// <summary>
     /// Interaction logic for Window2.xaml
     /// </summary>
-    public partial class Window2 : Window
+    public partial class AddDebtorWin : Window
     {
         
-        public Window2()
+        public AddDebtorWin()
         {
             InitializeComponent();
         }
