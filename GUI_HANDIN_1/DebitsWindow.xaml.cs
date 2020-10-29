@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Prism.Commands;
 
 namespace GUI_HANDIN_1
 {
@@ -20,10 +21,13 @@ namespace GUI_HANDIN_1
     public partial class DebitsWindow : Window
     {
         public DebitViewModel ViewModel;
-        public DebitsWindow()
+        public DebitsWindow(Debtor debtor)
         {
             InitializeComponent();
-            ViewModel = this.DataContext as DebitViewModel;
+            ViewModel = new DebitViewModel();
+            this.DataContext = ViewModel;
+            ViewModel.Debtor = debtor;
+            ViewModel.Window = this;
         }
     }
 }

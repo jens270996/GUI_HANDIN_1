@@ -13,7 +13,7 @@ namespace GUI_HANDIN_1
     {
         public ViewModel2()
         {
-            Debtor=new Debtor("Name",0.0);
+            Debtor=new Debtor("Name");
             initialDebt = 0.0;
         }
 

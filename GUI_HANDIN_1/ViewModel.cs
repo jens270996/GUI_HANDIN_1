@@ -19,10 +19,6 @@ namespace GUI_HANDIN_1
         public ViewModel()
         {
             debtors=new ObservableCollection<Debtor>();
-            debtors.Add(new Debtor("Jens",27.9));
-            debtors.Add(new Debtor("Joachim",27000.0));
-            //skriv op til event
-            
             
         }
 
@@ -75,8 +71,8 @@ namespace GUI_HANDIN_1
 
         private void DebtorSelected()
         {
-            var win=new DebitsWindow();
-            win.ViewModel.Debtor = CurrentDebtor;
+            var win=new DebitsWindow(CurrentDebtor);
+            
             win.Show();
         }
 
