@@ -10,15 +10,21 @@
         <local:ViewModel2/>
     </Window.DataContext>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <TextBox Name="NameTextBox" Text="{Binding Debtor.Name }"></TextBox>
-        <TextBox Grid.Row="1" Name="DebtTextBox" Text="{Binding InitialDebt }"></TextBox>
-        <Button Grid.Row="2" x:Name="AddDebtorButton" Content="Add Debtor" Command="{Binding AddDebtorAndCloseCommand}"/>
+        <TextBlock Text="Name: " FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5"/>
+        <TextBlock Text="Initial Debt: " Grid.Row="1" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5"></TextBlock>
+        <TextBox  Grid.Column="1" Name="NameTextBox" Text="{Binding Debtor.Name }"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5"></TextBox>
+        <TextBox Grid.Row="1" Grid.Column="1" Name="DebtTextBox" Text="{Binding InitialDebt }"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5"/>
+        <Button Grid.Row="2" x:Name="AddDebtorButton" Content="Add Debtor" Command="{Binding AddDebtorAndCloseCommand}" Grid.ColumnSpan="2" MaxWidth="150" MaxHeight="100"  />
 
     </Grid>
 </Window>
